@@ -34,9 +34,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/sass/styles.scss"
-            ]
+            "styles": ["src/sass/styles.scss", "src/tailwind/styles.css"]
           },
           "configurations": {
             "production": {
@@ -88,9 +86,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/sass/styles.scss"
-            ]
+            "styles": ["src/sass/styles.scss", "src/tailwind/styles.css"]
           }
         }
       }
@@ -118,9 +114,7 @@
                 "input": "projects/e2e/public"
               }
             ],
-            "styles": [
-              "projects/e2e/src/styles.scss"
-            ]
+            "styles": ["projects/e2e/src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -172,9 +166,7 @@
                 "input": "projects/e2e/public"
               }
             ],
-            "styles": [
-              "projects/e2e/src/styles.scss"
-            ]
+            "styles": ["projects/e2e/src/styles.scss"]
           }
         }
       }

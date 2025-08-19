@@ -1,0 +1,50 @@
+:root {
+  --clr-white: hsl(0, 100%, 100%);
+  --clr-black: hsl(0, 0%, 0%);
+
+  --clr-grey-600: hsl(180, 25%, 32%);
+  --clr-grey-550: hsl(180, 18%, 40%);
+  --clr-grey-500: hsl(186, 14%, 43%);
+  --clr-grey-400: hsl(184, 14%, 56%);
+  --clr-grey-300: hsl(184, 19%, 68%);
+  --clr-grey-200: hsl(185, 41%, 84%);
+  --clr-grey-50: hsl(189, 47%, 97%);
+
+  --clr-green-900: hsl(183, 100%, 15%);
+  --clr-green-800: hsl(183, 85%, 21%);
+  --clr-green-750: hsl(183, 79%, 24%);
+  --clr-green-400: hsl(172, 67%, 45%);
+  --clr-green-200: hsl(173, 61%, 77%);
+
+  --clr-orange-400: hsl(13, 70%, 60%);
+
+  --ff: 'Space Mono', monospace;
+
+  --fw-thin: 100;
+  --fw-extralight: 200;
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  --fs-100: 6.25rem;
+  --fs-96: 6rem;
+  --fs-80: 5rem;
+  --fs-72: 4.5rem;
+  --fs-56: 3.5rem;
+  --fs-48: 3rem;
+  --fs-40: 2.5rem;
+  --fs-32: 2rem;
+  --fs-28: 1.75rem;
+  --fs-24: 1.5rem;
+  --fs-20: 1.25rem;
+  --fs-18: 1.125rem;
+  --fs-16: 1rem;
+  --fs-14: 0.875rem;
+  --fs-13: 0.8125rem;
+  --fs-12: 0.75rem;
+  --fs-11: 0.6875rem;
+}

@@ -1,0 +1,47 @@
+@utility text-preset-1 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-48);
+  line-height: 71px;
+  letter-spacing: -1px;
+}
+
+@utility text-preset-2 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-32);
+  line-height: 47px;
+  letter-spacing: -0.67px;
+}
+
+@utility text-preset-3 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-24);
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+@utility text-preset-4 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-20);
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+@utility text-preset-5 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-16);
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+@utility text-preset-6 {
+  font-family: var(--ff);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-13);
+  line-height: 19px;
+  letter-spacing: 0;
+}
