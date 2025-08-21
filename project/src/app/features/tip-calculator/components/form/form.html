@@ -1,0 +1,45 @@
+<section class="tc">
+  <form class="tc_form" [formGroup]="formTip" (ngSubmit)="submit()">
+    <fieldset>
+      <label>Bill</label>
+      <div class="group">
+        <input class="input-text" type="text" formControlName="bill" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <label>Select Tip %</label>
+      <div class="group">
+        <label>
+          <input class="input-radio" type="radio" formControlName="tip" value="5" />
+          <span>5%</span>
+        </label>
+        <label>
+          <input class="input-radio" type="radio" formControlName="tip" value="10" />
+          <span>10%</span>
+        </label>
+        <label>
+          <input class="input-radio" type="radio" formControlName="tip" value="15" />
+          <span>15%</span>
+        </label>
+        <label>
+          <input class="input-radio" type="radio" formControlName="tip" value="25" />
+          <span>25%</span>
+        </label>
+        <label>
+          <input class="input-radio" type="radio" formControlName="tip" value="50" />
+          <span>50%</span>
+        </label>
+        <div>
+          <input class="input-text" type="text" formControlName="customTip" placeholder="Custom" />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <label>Number of people</label>
+      <div class="group">
+        <input class="input-text" type="text" formControlName="nPeople" />
+      </div>
+    </fieldset>
+  </form>
+  <div class="tc_result"></div>
+</section>

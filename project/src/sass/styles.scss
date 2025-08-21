@@ -1,3 +1,15 @@
+@use 'tailwindcss';
+
 @use './abstract/variables';
 @use './base/reset';
 // @use './base/debug.scss';
+
+@use './helpers/typography.css';
+
+@layer base {
+  html {
+    font-family: var(--ff);
+    background-color: var(--clr-blue-950);
+    color: var(--clr-white);
+  }
+}

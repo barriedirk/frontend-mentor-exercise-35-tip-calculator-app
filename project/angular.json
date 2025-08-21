@@ -34,7 +34,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/sass/styles.scss", "src/tailwind/styles.css"]
+            "styles": ["src/sass/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -86,7 +86,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/sass/styles.scss", "src/tailwind/styles.css"]
+            "styles": ["src/sass/styles.scss"]
           }
         }
       }

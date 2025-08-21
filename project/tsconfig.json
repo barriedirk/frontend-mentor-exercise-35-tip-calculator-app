@@ -17,12 +17,12 @@
       "@app/*": ["src/app/*"],
       "@store": ["src/app/store/index.ts"],
       "@features/*": ["src/app/features/*"],
+      "@layouts/*": ["src/app/layouts/*"],
       "@components/*": ["src/app/components/*"],
       "@interfaces/*": ["src/app/interfaces/*"],
       "@services/*": ["src/app/services/*"],
       "@modals/*": ["src/app/modals/*"]
     }
-
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
