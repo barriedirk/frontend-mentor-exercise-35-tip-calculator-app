@@ -11,7 +11,9 @@
     "build:gh": "ng build --base-href=/frontend-mentor-exercise-35-tip-calculator-app/",
     "deploy:gh": "gh-pages -d dist/frontend-mentor-exercise-35-tip-calculator-app/browser",
     "build-deploy:gh": "ng build --base-href=/frontend-mentor-exercise-35-tip-calculator-app/ && gh-pages -d dist/frontend-mentor-exercise-35-tip-calculator-app/browser",
-    "test": "ng test"
+    "test": "ng test",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "private": true,
   "dependencies": {

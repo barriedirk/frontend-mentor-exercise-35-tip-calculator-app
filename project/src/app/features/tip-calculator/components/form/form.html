@@ -3,8 +3,15 @@
   <form class="tc_form" [formGroup]="formTip">
     <fieldset>
       <label for="bill" class="input-label text-preset-5">Bill</label>
+
+      @if (bill.invalid && (bill.touched || bill.dirty )) {
+      <span class="input-error-message">Can’t be zero</span>
+      }
       <p id="billHelp" class="sr-only">Enter the bill amount in dollars</p>
-      <div class="input-group text-preset-3">
+      <div
+        class="input-group text-preset-3"
+        [ngClass]="{'invalid': bill.invalid && (bill.touched || bill.dirty ) }"
+      >
         <svg class="input-icon" width="11px" height="17px" aria-hidden="true">
           <use href="assets/icon/sprite.svg#dollar" />
         </svg>
@@ -45,7 +52,10 @@
           <input class="input-radio" type="radio" formControlName="tip" value="50" />
           <span>50%</span>
         </label>
-        <div class="input-group text-preset-3">
+        <div
+          class="input-group text-preset-3"
+          [ngClass]="{'invalid': customTip.invalid && (customTip.touched || customTip.dirty ) }"
+        >
           <p id="customTipHelp" class="sr-only">Enter a custom tip percentage</p>
           <input
             class="input-text"
@@ -65,7 +75,13 @@
     </fieldset>
     <fieldset>
       <label for="nPeople" class="input-label text-preset-5">Number of people</label>
-      <div class="input-group text-preset-3">
+      @if (nPeople.invalid && (nPeople.touched || nPeople.dirty )) {
+      <span class="input-error-message">Can’t be zero</span>
+      }
+      <div
+        class="input-group text-preset-3"
+        [ngClass]="{'invalid': nPeople.invalid && (nPeople.touched || nPeople.dirty ) }"
+      >
         <svg class="input-icon" width="13px" height="16px" aria-hidden="true">
           <use href="assets/icon/sprite.svg#person" />
         </svg>
