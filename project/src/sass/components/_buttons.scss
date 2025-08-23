@@ -1,0 +1,26 @@
+.btn--reset {
+  height: 48px;
+  width: 100%;
+}
+
+.btn {
+  color: var(--clr-green-900);
+  border-radius: 5px;
+  background-color: var(--clr-green-200);
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:invalid,
+.btn:disabled {
+  color: var(--clr-green-800);
+  background-color: var(--clr-green-750);
+}
+
+.btn:is(:hover, :focus, :active) {
+  color: var(--clr-green-900);
+  background-color: var(--clr-green-400);
+}

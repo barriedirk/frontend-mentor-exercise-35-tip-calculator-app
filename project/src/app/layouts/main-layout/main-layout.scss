@@ -6,4 +6,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 40px;
+
+  .main_content {
+    max-width: 920px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 58em) {
+  .main_layout {
+    gap: 80px;
+  }
 }

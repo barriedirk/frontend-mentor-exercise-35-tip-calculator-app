@@ -1,45 +1,117 @@
 <section class="tc">
-  <form class="tc_form" [formGroup]="formTip" (ngSubmit)="submit()">
+  <h1 class="sr-only">Tip Form Calculator</h1>
+  <form class="tc_form" [formGroup]="formTip">
     <fieldset>
-      <label>Bill</label>
-      <div class="group">
-        <input class="input-text" type="text" formControlName="bill" />
+      <label for="bill" class="input-label text-preset-5">Bill</label>
+      <p id="billHelp" class="sr-only">Enter the bill amount in dollars</p>
+      <div class="input-group text-preset-3">
+        <svg class="input-icon" width="11px" height="17px" aria-hidden="true">
+          <use href="assets/icon/sprite.svg#dollar" />
+        </svg>
+        <input
+          id="bill"
+          class="input-text"
+          type="text"
+          placeholder="0"
+          maxlength="8"
+          formControlName="bill"
+          [appOnlyNumbers]="false"
+          appSelectOnFocus
+          aria-describedby="billHelp"
+          inputmode="numeric"
+        />
       </div>
     </fieldset>
     <fieldset>
-      <label>Select Tip %</label>
-      <div class="group">
-        <label>
+      <legend id="tipLabel" class="input-label text-preset-5">Select Tip %</legend>
+      <div class="group group--column" role="radiogroup" aria-labelledby="tipLabel">
+        <label class="radio-group text-preset-3">
           <input class="input-radio" type="radio" formControlName="tip" value="5" />
           <span>5%</span>
         </label>
-        <label>
+        <label class="radio-group text-preset-3">
           <input class="input-radio" type="radio" formControlName="tip" value="10" />
           <span>10%</span>
         </label>
-        <label>
+        <label class="radio-group text-preset-3">
           <input class="input-radio" type="radio" formControlName="tip" value="15" />
           <span>15%</span>
         </label>
-        <label>
+        <label class="radio-group text-preset-3">
           <input class="input-radio" type="radio" formControlName="tip" value="25" />
           <span>25%</span>
         </label>
-        <label>
+        <label class="radio-group text-preset-3">
           <input class="input-radio" type="radio" formControlName="tip" value="50" />
           <span>50%</span>
         </label>
-        <div>
-          <input class="input-text" type="text" formControlName="customTip" placeholder="Custom" />
+        <div class="input-group text-preset-3">
+          <p id="customTipHelp" class="sr-only">Enter a custom tip percentage</p>
+          <input
+            class="input-text"
+            type="text"
+            formControlName="customTip"
+            aria-describedby="customTipHelp"
+            aria-label="Custom tip percentage"
+            maxlength="3"
+            placeholder="Custom"
+            [appOnlyNumbers]="true"
+            appSelectOnFocus
+            (keydown)="enterCustomTip($event)"
+            inputmode="numeric"
+          />
         </div>
       </div>
     </fieldset>
     <fieldset>
-      <label>Number of people</label>
-      <div class="group">
-        <input class="input-text" type="text" formControlName="nPeople" />
+      <label for="nPeople" class="input-label text-preset-5">Number of people</label>
+      <div class="input-group text-preset-3">
+        <svg class="input-icon" width="13px" height="16px" aria-hidden="true">
+          <use href="assets/icon/sprite.svg#person" />
+        </svg>
+        <input
+          id="nPeople"
+          class="input-text"
+          type="text"
+          maxlength="3"
+          placeholder="0"
+          formControlName="nPeople"
+          [appOnlyNumbers]="true"
+          appSelectOnFocus
+          inputmode="numeric"
+        />
       </div>
     </fieldset>
   </form>
-  <div class="tc_result"></div>
+  <div class="tc_result flex flex-col gap-[20px]">
+    <div class="flex flex-col gap-[20px]">
+      <div class="tc_result-tip flex flex-row justify-between">
+        <div>
+          <h2 class="clr-white text-preset-5">Tip Amount</h2>
+          <h3 class="clr-grey-400 text-preset-6">/ person</h3>
+        </div>
+        <div aria-live="polite">
+          <p class="text-preset-2 clr-green-400 md:text-preset-1">
+            ${{tipAmount() | number: '1.2-2' }}
+          </p>
+        </div>
+      </div>
+      <div class="tc_result-total flex flex-row justify-between">
+        <div>
+          <h2 class="clr-white text-preset-5">Total</h2>
+          <h3 class="clr-grey-400 text-preset-6">/ person</h3>
+        </div>
+        <div aria-live="polite">
+          <p class="text-preset-2 clr-green-400 md:text-preset-1">
+            ${{totalAmount() | number: '1.2-2' }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tc_result-action text-preset-4 mt-auto">
+      <button [disabled]="!formTip.valid" class="btn btn--reset" type="reset" (click)="reset()">
+        RESET
+      </button>
+    </div>
+  </div>
 </section>

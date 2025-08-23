@@ -1,0 +1,40 @@
+.tc {
+  background-color: var(--clr-white);
+  padding: 32px;
+  border-radius: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+
+  .tc_result,
+  .tc_form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 457px;
+    width: 100%;
+  }
+
+  .tc_result {
+    border-radius: 24px;
+    padding: 24px;
+    background-color: var(--clr-green-900);
+    color: var(--clr-white);
+  }
+}
+
+@media screen and (min-width: 58em) {
+  .tc {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .tc_form,
+  .tc_result {
+    max-width: 413px;
+    width: 100%;
+  }
+}

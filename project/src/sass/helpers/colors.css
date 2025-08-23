@@ -1,0 +1,15 @@
+@utility clr-green-400 {
+  color: var(--clr-green-400);
+}
+
+@utility clr-green-800 {
+  color: var(--clr-green-400);
+}
+
+@utility clr-grey-400 {
+  color: var(--clr-grey-400);
+}
+
+@utility clr-white {
+  color: var(--clr-white);
+}

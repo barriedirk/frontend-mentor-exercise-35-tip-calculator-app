@@ -4,7 +4,11 @@
 @use './base/reset';
 // @use './base/debug.scss';
 
+@use './components/form';
+@use './components/buttons';
+
 @use './helpers/typography.css';
+@use './helpers/colors.css';
 
 @layer base {
   html {
