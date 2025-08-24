@@ -3,6 +3,10 @@
   padding: 32px;
   border-radius: 32px;
 
+  margin-inline: auto;
+  max-width: 600px;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,6 +34,7 @@
   .tc {
     flex-direction: row;
     align-items: stretch;
+    max-width: 100%;
   }
 
   .tc_form,

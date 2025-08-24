@@ -25,6 +25,7 @@
           formControlName="bill"
           [appOnlyNumbers]="false"
           appSelectOnFocus
+          appAutoFocusDirective
           aria-describedby="billHelp"
           inputmode="numeric"
         />
@@ -38,7 +39,7 @@
       }
 
       <div class="group group--column" role="radiogroup" aria-labelledby="tipLabel">
-        @for (tipValue of tipOptions; track tip; let idx = $index) {
+        @for (tipValue of tipOptions; track tipValue; let idx = $index) {
         <div
           #radioOption
           class="radio-group text-preset-3"
@@ -52,7 +53,8 @@
             class="input-radio"
             type="radio"
             formControlName="tip"
-            [value]="tipValue"
+            [attr.data-value]="tipValue"
+            value="{{ tipValue }}"
           />
           <label [for]="'tip-' + tipValue">{{tipValue}}%</label>
         </div>

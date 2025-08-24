@@ -17,6 +17,7 @@ import { OnlyNumbersDirective } from '@app/shared/directives/only-numbers-direct
 import { SelectOnFocusDirective } from '@app/shared/directives/select-on-focus-directive';
 import { conditionalTipValidator } from '@app/shared/validators/tip-validators';
 import { debounceTime } from 'rxjs';
+import { AutoFocusDirective } from '@app/shared/directives/auto-focus-directive';
 
 const CUSTOM_TIP = 'CUSTOM_TIP';
 
@@ -26,6 +27,7 @@ const CUSTOM_TIP = 'CUSTOM_TIP';
     ReactiveFormsModule,
     OnlyNumbersDirective,
     SelectOnFocusDirective,
+    AutoFocusDirective,
     DecimalPipe,
     CommonModule,
   ],
@@ -105,16 +107,31 @@ export class Form implements OnInit {
   keydownRadio(event: KeyboardEvent, index: number) {
     const radios = this.radioOptions.toArray();
 
+    if (event.key === 'Enter') {
+      event.preventDefault();
+
+      const currentRadio =
+        radios[index]?.nativeElement.querySelector<HTMLInputElement>('input[type="radio"]');
+
+      if (!currentRadio) return;
+
+      currentRadio.click();
+    }
+
     if (['ArrowLeft', 'ArrowUp'].includes(event.key)) {
       event.preventDefault();
+
       const prev = radios[(index - 1 + radios.length) % radios.length];
+
       prev.nativeElement.focus();
       prev.nativeElement.querySelector('input[type="radio"]')?.dispatchEvent(new Event('click'));
     }
 
     if (['ArrowRight', 'ArrowDown'].includes(event.key)) {
       event.preventDefault();
+
       const next = radios[(index + 1) % radios.length];
+
       next.nativeElement.focus();
       next.nativeElement.querySelector('input[type="radio"]')?.dispatchEvent(new Event('click'));
     }
