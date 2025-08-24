@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } from '@angular/core';
 
-import { DecimalPipe } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OnlyNumbersDirective } from '@app/shared/directives/only-numbers-directive';
@@ -12,7 +12,13 @@ const CUSTOM_TIP = 'CUSTOM_TIP';
 
 @Component({
   selector: 'app-form',
-  imports: [ReactiveFormsModule, OnlyNumbersDirective, SelectOnFocusDirective, DecimalPipe],
+  imports: [
+    ReactiveFormsModule,
+    OnlyNumbersDirective,
+    SelectOnFocusDirective,
+    DecimalPipe,
+    CommonModule,
+  ],
   templateUrl: './form.html',
   styleUrl: './form.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,11 +30,27 @@ export class Form implements OnInit {
     {
       bill: new FormControl('', [Validators.required, Validators.min(1)]),
       tip: new FormControl(CUSTOM_TIP, [Validators.min(1), Validators.max(100)]),
-      customTip: new FormControl(''),
+      customTip: new FormControl('', [Validators.min(1), Validators.max(100)]),
       nPeople: new FormControl('', [Validators.required, Validators.min(1)]),
     },
     { validators: [conditionalTipValidator] }
   );
+
+  get bill() {
+    return this.formTip.get('bill')!;
+  }
+
+  get tip() {
+    return this.formTip.get('tip')!;
+  }
+
+  get customTip() {
+    return this.formTip.get('customTip')!;
+  }
+
+  get nPeople() {
+    return this.formTip.get('nPeople')!;
+  }
 
   ngOnInit(): void {
     this.formTip.controls['tip'].valueChanges.subscribe((value) => {

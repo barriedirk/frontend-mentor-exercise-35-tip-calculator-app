@@ -89,6 +89,14 @@ legend {
   color: var(--clr-green-900);
 }
 
+div.field-invalid {
+  border: 1px solid var(--clr-orange-400);
+}
+
+.input-error-message {
+  color: var(--clr-orange-400);
+}
+
 @media screen and (min-width: 48em) {
   .group--column {
     grid-template-columns: repeat(3, 1fr);

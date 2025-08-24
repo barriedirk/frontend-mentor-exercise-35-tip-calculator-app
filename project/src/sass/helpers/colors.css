@@ -13,3 +13,7 @@
 @utility clr-white {
   color: var(--clr-white);
 }
+
+@utility clr-orange-400 {
+  color: var(--clr-orange-400);
+}
