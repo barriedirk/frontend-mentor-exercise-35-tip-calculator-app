@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal, WritableSignal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  signal,
+  ViewChild,
+  ViewChildren,
+  WritableSignal,
+} from '@angular/core';
 
 import { CommonModule, DecimalPipe } from '@angular/common';
 
@@ -24,6 +34,11 @@ const CUSTOM_TIP = 'CUSTOM_TIP';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Form implements OnInit {
+  @ViewChild('billInput') billInput!: ElementRef;
+  @ViewChildren('radioOption') radioOptions!: QueryList<ElementRef<HTMLElement>>;
+
+  tipOptions = ['5', '10', '15', '25', '50'];
+
   tipAmount: WritableSignal<number> = signal(0);
   totalAmount: WritableSignal<number> = signal(0);
   formTip = new FormGroup(
@@ -87,6 +102,24 @@ export class Form implements OnInit {
     }
   }
 
+  keydownRadio(event: KeyboardEvent, index: number) {
+    const radios = this.radioOptions.toArray();
+
+    if (['ArrowLeft', 'ArrowUp'].includes(event.key)) {
+      event.preventDefault();
+      const prev = radios[(index - 1 + radios.length) % radios.length];
+      prev.nativeElement.focus();
+      prev.nativeElement.querySelector('input[type="radio"]')?.dispatchEvent(new Event('click'));
+    }
+
+    if (['ArrowRight', 'ArrowDown'].includes(event.key)) {
+      event.preventDefault();
+      const next = radios[(index + 1) % radios.length];
+      next.nativeElement.focus();
+      next.nativeElement.querySelector('input[type="radio"]')?.dispatchEvent(new Event('click'));
+    }
+  }
+
   reset() {
     this.formTip.reset({
       bill: '',
@@ -99,8 +132,7 @@ export class Form implements OnInit {
     this.totalAmount.set(0);
 
     setTimeout(() => {
-      const billInput = document.getElementById('bill');
-      billInput?.focus();
+      this.billInput?.nativeElement?.focus();
     });
   }
 }

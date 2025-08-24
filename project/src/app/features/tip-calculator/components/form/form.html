@@ -16,6 +16,7 @@
           <use href="assets/icon/sprite.svg#dollar" />
         </svg>
         <input
+          #billInput
           id="bill"
           class="input-text"
           type="text"
@@ -37,26 +38,25 @@
       }
 
       <div class="group group--column" role="radiogroup" aria-labelledby="tipLabel">
-        <label class="radio-group text-preset-3">
-          <input class="input-radio" type="radio" formControlName="tip" value="5" />
-          <span>5%</span>
-        </label>
-        <label class="radio-group text-preset-3">
-          <input class="input-radio" type="radio" formControlName="tip" value="10" />
-          <span>10%</span>
-        </label>
-        <label class="radio-group text-preset-3">
-          <input class="input-radio" type="radio" formControlName="tip" value="15" />
-          <span>15%</span>
-        </label>
-        <label class="radio-group text-preset-3">
-          <input class="input-radio" type="radio" formControlName="tip" value="25" />
-          <span>25%</span>
-        </label>
-        <label class="radio-group text-preset-3">
-          <input class="input-radio" type="radio" formControlName="tip" value="50" />
-          <span>50%</span>
-        </label>
+        @for (tipValue of tipOptions; track tip; let idx = $index) {
+        <div
+          #radioOption
+          class="radio-group text-preset-3"
+          role="radio"
+          [attr.tabindex]="tip.value === tipValue ? 0 : -1"
+          [attr.aria-checked]="tip.value === tipValue"
+          (keydown)="keydownRadio($event, idx)"
+        >
+          <input
+            [id]="'tip-' + tipValue"
+            class="input-radio"
+            type="radio"
+            formControlName="tip"
+            [value]="tipValue"
+          />
+          <label [for]="'tip-' + tipValue">{{tipValue}}%</label>
+        </div>
+        }
         <div
           class="input-group text-preset-3"
           [ngClass]="{'field-invalid': customTip.invalid && (customTip.touched || customTip.dirty ) }"
