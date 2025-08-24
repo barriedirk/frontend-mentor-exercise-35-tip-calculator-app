@@ -131,8 +131,6 @@ export class Form implements OnInit {
     this.tipAmount.set(0);
     this.totalAmount.set(0);
 
-    setTimeout(() => {
-      this.billInput?.nativeElement?.focus();
-    });
+    this.billInput?.nativeElement?.focus();
   }
 }
