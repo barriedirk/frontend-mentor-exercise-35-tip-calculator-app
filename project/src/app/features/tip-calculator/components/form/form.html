@@ -25,9 +25,10 @@
           formControlName="bill"
           [appOnlyNumbers]="false"
           appSelectOnFocus
-          appAutoFocusDirective
+          appAutoFocus
           aria-describedby="billHelp"
           inputmode="numeric"
+          data-cy="bill"
         />
       </div>
     </fieldset>
@@ -50,13 +51,16 @@
         >
           <input
             [id]="'tip-' + tipValue"
+            [attr.data-cy]="'tip-' + tipValue"
             class="input-radio"
             type="radio"
             formControlName="tip"
             [attr.data-value]="tipValue"
             value="{{ tipValue }}"
           />
-          <label [for]="'tip-' + tipValue">{{tipValue}}%</label>
+          <label [attr.data-cy]="'tip-label-' + tipValue" [for]="'tip-' + tipValue"
+            >{{tipValue}}%</label
+          >
         </div>
         }
         <div
@@ -65,6 +69,8 @@
         >
           <p id="customTipHelp" class="sr-only">Enter a custom tip percentage</p>
           <input
+            id="customTip"
+            data-cy="customTip"
             class="input-text"
             type="text"
             formControlName="customTip"
@@ -96,6 +102,7 @@
         </svg>
         <input
           id="nPeople"
+          data-cy="nPeople"
           class="input-text"
           type="text"
           maxlength="3"
@@ -116,7 +123,7 @@
           <h3 class="clr-grey-400 text-preset-6">/ person</h3>
         </div>
         <div aria-live="polite">
-          <p class="text-preset-2 clr-green-400 md:text-preset-1">
+          <p class="text-preset-2 clr-green-400 md:text-preset-1" data-cy="tipAmount">
             ${{tipAmount() | number: '1.2-2' }}
           </p>
         </div>
@@ -127,14 +134,20 @@
           <h3 class="clr-grey-400 text-preset-6">/ person</h3>
         </div>
         <div aria-live="polite">
-          <p class="text-preset-2 clr-green-400 md:text-preset-1">
+          <p class="text-preset-2 clr-green-400 md:text-preset-1" data-cy="totalAmount">
             ${{totalAmount() | number: '1.2-2' }}
           </p>
         </div>
       </div>
     </div>
     <div class="tc_result-action text-preset-4 mt-auto">
-      <button [disabled]="!formTip.valid" class="btn btn--reset" type="reset" (click)="reset()">
+      <button
+        [disabled]="!formTip.valid"
+        class="btn btn--reset"
+        type="reset"
+        (click)="reset()"
+        data-cy="btnReset"
+      >
         RESET
       </button>
     </div>
