@@ -3,7 +3,7 @@
 ![Design preview for the Tip calculator app coding challenge](./preview.jpg)
 
 * [Github](https://github.com/barriedirk/frontend-mentor-exercise-35-tip-calculator-app)
-* [URL Site](https://barriedirk.github.io/frontend-mentor-exercise-35-tip-calculator-app)
+* [URL Site](https://barriedirk.github.io/frontend-mentor-exercise-35-tip-calculator-app/#/tip)
 * [Repository Frontend Mentor](https://www.frontendmentor.io/profile/barriedirk)
 
 
