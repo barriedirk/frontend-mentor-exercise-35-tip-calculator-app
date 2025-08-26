@@ -86,7 +86,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/sass/styles.scss"]
+            "styles": [
+              "src/sass/styles.scss"
+            ],
+            "karmaConfig": "karma.conf.js"
           }
         }
       }

@@ -81,6 +81,9 @@ importers:
       karma-coverage:
         specifier: ~2.2.0
         version: 2.2.1
+      karma-html-reporter:
+        specifier: ^0.2.7
+        version: 0.2.7(karma@6.4.4)
       karma-jasmine:
         specifier: ~5.1.0
         version: 5.1.0(karma@6.4.4)
@@ -2539,6 +2542,11 @@ packages:
     resolution: {integrity: sha512-yj7hbequkQP2qOSb20GuNSIyE//PgJWHwC2IydLE6XRtsnaflv+/OSGNssPjobYUlhVVagy99TQpqUt3vAUG7A==}
     engines: {node: '>=10.0.0'}
 
+  karma-html-reporter@0.2.7:
+    resolution: {integrity: sha512-FKh06s+iM9DTFjNmVbMxkFRtOciSVgQUTyK6oYymW+cBvdxhn2U7+EMaYSvFzN6hH9tVj07CWVyYROenPQuhcQ==}
+    peerDependencies:
+      karma: '>=0.11'
+
   karma-jasmine-html-reporter@2.1.0:
     resolution: {integrity: sha512-sPQE1+nlsn6Hwb5t+HHwyy0A1FNCVKuL1192b+XNauMYWThz2kweiBVW1DqloRpVvZIJkIoHVB7XRpK78n1xbQ==}
     peerDependencies:
@@ -2664,6 +2672,10 @@ packages:
 
   lodash.once@4.1.1:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
+
+  lodash@2.2.1:
+    resolution: {integrity: sha512-rGaKzxe4Biu8YdCPD/tUkBF4/fnAqgj63A6PeAyQnH/NEKNUHgppGZUgYBYOmAZsBKwwAb343Q1Zew0RDB2jIg==}
+    engines: {'0': node, '1': rhino}
 
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
@@ -2879,6 +2891,9 @@ packages:
 
   msgpackr@1.11.5:
     resolution: {integrity: sha512-UjkUHN0yqp9RWKy0Lplhh+wlpdt9oQBYgULZOiFhV3VclSF1JnSQWZ5r9gORQlNYaUKQoR8itv7g7z1xDDuACA==}
+
+  mu2@0.5.21:
+    resolution: {integrity: sha512-N0w5yapK+Vr4WJrZrE9pDVRxWa1SntycPBmDeFya2i54kS6VQXq8J7bYBhCNxeKvij3QfaFDDWBthLGai1Kbgw==}
 
   mute-stream@1.0.0:
     resolution: {integrity: sha512-avsJQhyd+680gKXyG/sQc0nXaC6rBkPOfyHYcFb9+hdkqQkR9bdnkJ0AMZhke0oesPqIO+mFFJ+IdBc7mst4IA==}
@@ -6442,6 +6457,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  karma-html-reporter@0.2.7(karma@6.4.4):
+    dependencies:
+      karma: 6.4.4
+      lodash: 2.2.1
+      mu2: 0.5.21
+
   karma-jasmine-html-reporter@2.1.0(jasmine-core@5.7.1)(karma-jasmine@5.1.0(karma@6.4.4))(karma@6.4.4):
     dependencies:
       jasmine-core: 5.7.1
@@ -6588,6 +6609,8 @@ snapshots:
   lodash.isstring@4.0.1: {}
 
   lodash.once@4.1.1: {}
+
+  lodash@2.2.1: {}
 
   lodash@4.17.21: {}
 
@@ -6848,6 +6871,8 @@ snapshots:
     optionalDependencies:
       msgpackr-extract: 3.0.3
     optional: true
+
+  mu2@0.5.21: {}
 
   mute-stream@1.0.0: {}
 
