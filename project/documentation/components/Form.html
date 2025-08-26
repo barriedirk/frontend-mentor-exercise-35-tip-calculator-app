@@ -1,0 +1,1252 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>project documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">project documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Form</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/tip-calculator/components/form/form.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-form</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/Form.html" target="_self" >ReactiveFormsModule</a></code>
+                                <code><a href="../directives/OnlyNumbersDirective.html" target="_self" >OnlyNumbersDirective</a></code>
+                                <code><a href="../directives/SelectOnFocusDirective.html" target="_self" >SelectOnFocusDirective</a></code>
+                                <code><a href="../directives/AutoFocusDirective.html" target="_self" >AutoFocusDirective</a></code>
+                            <code>DecimalPipe</code>
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./form.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./form.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#billInput" >billInput</a>
+                            </li>
+                            <li>
+                                <a href="#formTip" >formTip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#radioOptions" >radioOptions</a>
+                            </li>
+                            <li>
+                                <a href="#tipAmount" >tipAmount</a>
+                            </li>
+                            <li>
+                                <a href="#tipOptions" >tipOptions</a>
+                            </li>
+                            <li>
+                                <a href="#totalAmount" >totalAmount</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#enterCustomTip" >enterCustomTip</a>
+                            </li>
+                            <li>
+                                <a href="#keydownRadio" >keydownRadio</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#reset" >reset</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#bill" >bill</a>
+                                </li>
+                                <li>
+                                    <a href="#tip" >tip</a>
+                                </li>
+                                <li>
+                                    <a href="#customTip" >customTip</a>
+                                </li>
+                                <li>
+                                    <a href="#nPeople" >nPeople</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enterCustomTip"></a>
+                    <span class="name">
+                        <span ><b>enterCustomTip</b></span>
+                        <a href="#enterCustomTip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enterCustomTip(evt: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>evt</td>
+                                            <td>
+                                                        <code>KeyboardEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="keydownRadio"></a>
+                    <span class="name">
+                        <span ><b>keydownRadio</b></span>
+                        <a href="#keydownRadio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>keydownRadio(event: KeyboardEvent, index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>KeyboardEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset"></a>
+                    <span class="name">
+                        <span ><b>reset</b></span>
+                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>reset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="billInput"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>billInput</b></span>
+                        <a href="#billInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;billInput&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formTip"></a>
+                    <span class="name">
+                        <span ><b>formTip</b></span>
+                        <a href="#formTip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup(
+    {
+      bill: new FormControl(&#x27;&#x27;, [Validators.required, Validators.min(1)]),
+      tip: new FormControl(CUSTOM_TIP, [Validators.min(1), Validators.max(100)]),
+      customTip: new FormControl(&#x27;&#x27;, [Validators.min(1), Validators.max(100)]),
+      nPeople: new FormControl(&#x27;&#x27;, [Validators.required, Validators.min(1)]),
+    },
+    { validators: [conditionalTipValidator] }
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="radioOptions"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>radioOptions</b></span>
+                        <a href="#radioOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>QueryList&lt;ElementRef&lt;HTMLElement&gt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChildren(&#x27;radioOption&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tipAmount"></a>
+                    <span class="name">
+                        <span ><b>tipAmount</b></span>
+                        <a href="#tipAmount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>WritableSignal&lt;number&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tipOptions"></a>
+                    <span class="name">
+                        <span ><b>tipOptions</b></span>
+                        <a href="#tipOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;5&#x27;, &#x27;10&#x27;, &#x27;15&#x27;, &#x27;25&#x27;, &#x27;50&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalAmount"></a>
+                    <span class="name">
+                        <span ><b>totalAmount</b></span>
+                        <a href="#totalAmount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>WritableSignal&lt;number&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="bill"></a>
+                        <span class="name"><b>bill</b><a href="#bill"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>bill()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:56</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tip"></a>
+                        <span class="name"><b>tip</b><a href="#tip"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>tip()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:60</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="customTip"></a>
+                        <span class="name"><b>customTip</b><a href="#customTip"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>customTip()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:64</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nPeople"></a>
+                        <span class="name"><b>nPeople</b><a href="#nPeople"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>nPeople()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/features/tip-calculator/components/form/form.ts:68</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  signal,
+  ViewChild,
+  ViewChildren,
+  WritableSignal,
+} from &#x27;@angular/core&#x27;;
+
+import { CommonModule, DecimalPipe } from &#x27;@angular/common&#x27;;
+
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { OnlyNumbersDirective } from &#x27;@app/shared/directives/only-numbers-directive&#x27;;
+import { SelectOnFocusDirective } from &#x27;@app/shared/directives/select-on-focus-directive&#x27;;
+import { conditionalTipValidator } from &#x27;@app/shared/validators/tip-validators&#x27;;
+import { debounceTime } from &#x27;rxjs&#x27;;
+import { AutoFocusDirective } from &#x27;@app/shared/directives/auto-focus-directive&#x27;;
+
+const CUSTOM_TIP &#x3D; &#x27;CUSTOM_TIP&#x27;;
+
+@Component({
+  selector: &#x27;app-form&#x27;,
+  imports: [
+    ReactiveFormsModule,
+    OnlyNumbersDirective,
+    SelectOnFocusDirective,
+    AutoFocusDirective,
+    DecimalPipe,
+    CommonModule,
+  ],
+  templateUrl: &#x27;./form.html&#x27;,
+  styleUrl: &#x27;./form.scss&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Form implements OnInit {
+  @ViewChild(&#x27;billInput&#x27;) billInput!: ElementRef;
+  @ViewChildren(&#x27;radioOption&#x27;) radioOptions!: QueryList&lt;ElementRef&lt;HTMLElement&gt;&gt;;
+
+  tipOptions &#x3D; [&#x27;5&#x27;, &#x27;10&#x27;, &#x27;15&#x27;, &#x27;25&#x27;, &#x27;50&#x27;];
+
+  tipAmount: WritableSignal&lt;number&gt; &#x3D; signal(0);
+  totalAmount: WritableSignal&lt;number&gt; &#x3D; signal(0);
+  formTip &#x3D; new FormGroup(
+    {
+      bill: new FormControl(&#x27;&#x27;, [Validators.required, Validators.min(1)]),
+      tip: new FormControl(CUSTOM_TIP, [Validators.min(1), Validators.max(100)]),
+      customTip: new FormControl(&#x27;&#x27;, [Validators.min(1), Validators.max(100)]),
+      nPeople: new FormControl(&#x27;&#x27;, [Validators.required, Validators.min(1)]),
+    },
+    { validators: [conditionalTipValidator] }
+  );
+
+  get bill() {
+    return this.formTip.get(&#x27;bill&#x27;)!;
+  }
+
+  get tip() {
+    return this.formTip.get(&#x27;tip&#x27;)!;
+  }
+
+  get customTip() {
+    return this.formTip.get(&#x27;customTip&#x27;)!;
+  }
+
+  get nPeople() {
+    return this.formTip.get(&#x27;nPeople&#x27;)!;
+  }
+
+  ngOnInit(): void {
+    this.formTip.controls[&#x27;tip&#x27;].valueChanges.subscribe((value) &#x3D;&gt; {
+      if (value &amp;&amp; ![CUSTOM_TIP].includes(value)) {
+        this.formTip.controls[&#x27;customTip&#x27;].patchValue(&#x27;&#x27;);
+      }
+    });
+
+    this.formTip.valueChanges.pipe(debounceTime(300)).subscribe((values) &#x3D;&gt; {
+      const bill &#x3D; parseFloat(values.bill || &#x27;0&#x27;);
+      const nPeople &#x3D; parseInt(values.nPeople || &#x27;0&#x27;, 10);
+      const tipControlValue &#x3D; values.tip;
+      const customTipValue &#x3D; parseFloat(values.customTip || &#x27;0&#x27;);
+
+      const tipPercent &#x3D;
+        tipControlValue &#x3D;&#x3D;&#x3D; CUSTOM_TIP ? customTipValue : parseFloat(tipControlValue || &#x27;0&#x27;);
+
+      if (bill &gt; 0 &amp;&amp; nPeople &gt; 0 &amp;&amp; tipPercent &gt;&#x3D; 0) {
+        const tipAmount &#x3D; (bill * (tipPercent / 100)) / nPeople;
+        const totalAmount &#x3D; bill / nPeople + tipAmount;
+
+        this.tipAmount.set(tipAmount);
+        this.totalAmount.set(totalAmount);
+      } else {
+        this.tipAmount.set(0);
+        this.totalAmount.set(0);
+      }
+    });
+  }
+
+  enterCustomTip(evt: KeyboardEvent) {
+    if ([&#x27;Enter&#x27;, &#x27;Delete&#x27;, &#x27; &#x27;].includes(evt.key) || !isNaN(parseInt(evt.key, 10))) {
+      this.formTip.controls[&#x27;tip&#x27;].patchValue(&#x27;CUSTOM_TIP&#x27;);
+    }
+  }
+
+  keydownRadio(event: KeyboardEvent, index: number) {
+    const radios &#x3D; this.radioOptions.toArray();
+
+    if (event.key &#x3D;&#x3D;&#x3D; &#x27;Enter&#x27;) {
+      event.preventDefault();
+
+      const currentRadio &#x3D;
+        radios[index]?.nativeElement.querySelector&lt;HTMLInputElement&gt;(&#x27;input[type&#x3D;&quot;radio&quot;]&#x27;);
+
+      if (!currentRadio) return;
+
+      currentRadio.click();
+    }
+
+    if ([&#x27;ArrowLeft&#x27;, &#x27;ArrowUp&#x27;].includes(event.key)) {
+      event.preventDefault();
+
+      const prev &#x3D; radios[(index - 1 + radios.length) % radios.length];
+
+      prev.nativeElement.focus();
+      prev.nativeElement.querySelector(&#x27;input[type&#x3D;&quot;radio&quot;]&#x27;)?.dispatchEvent(new Event(&#x27;click&#x27;));
+    }
+
+    if ([&#x27;ArrowRight&#x27;, &#x27;ArrowDown&#x27;].includes(event.key)) {
+      event.preventDefault();
+
+      const next &#x3D; radios[(index + 1) % radios.length];
+
+      next.nativeElement.focus();
+      next.nativeElement.querySelector(&#x27;input[type&#x3D;&quot;radio&quot;]&#x27;)?.dispatchEvent(new Event(&#x27;click&#x27;));
+    }
+  }
+
+  reset() {
+    this.formTip.reset({
+      bill: &#x27;&#x27;,
+      tip: CUSTOM_TIP,
+      customTip: &#x27;&#x27;,
+      nPeople: &#x27;&#x27;,
+    });
+
+    this.tipAmount.set(0);
+    this.totalAmount.set(0);
+
+    this.billInput?.nativeElement?.focus();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;tc&quot;&gt;
+  &lt;h1 class&#x3D;&quot;sr-only&quot;&gt;Tip Form Calculator&lt;/h1&gt;
+  &lt;form class&#x3D;&quot;tc_form&quot; [formGroup]&#x3D;&quot;formTip&quot;&gt;
+    &lt;fieldset class&#x3D;&quot;relative&quot;&gt;
+      &lt;label for&#x3D;&quot;bill&quot; class&#x3D;&quot;input-label text-preset-5 mb-2 inline-block&quot;&gt;Bill&lt;/label&gt;
+
+      @if (bill.invalid &amp;&amp; (bill.touched || bill.dirty )) {
+      &lt;span class&#x3D;&quot;clr-orange-400 text-preset-5 absolute top-0 right-0&quot;&gt;Can’t be zero&lt;/span&gt;
+      }
+      &lt;p id&#x3D;&quot;billHelp&quot; class&#x3D;&quot;sr-only&quot;&gt;Enter the bill amount in dollars&lt;/p&gt;
+      &lt;div
+        class&#x3D;&quot;input-group text-preset-3&quot;
+        [ngClass]&#x3D;&quot;{&#x27;field-invalid&#x27;: bill.invalid &amp;&amp; (bill.touched || bill.dirty ) }&quot;
+      &gt;
+        &lt;svg class&#x3D;&quot;input-icon&quot; width&#x3D;&quot;11px&quot; height&#x3D;&quot;17px&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+          &lt;use href&#x3D;&quot;assets/icon/sprite.svg#dollar&quot; /&gt;
+        &lt;/svg&gt;
+        &lt;input
+          #billInput
+          id&#x3D;&quot;bill&quot;
+          class&#x3D;&quot;input-text&quot;
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;0&quot;
+          maxlength&#x3D;&quot;8&quot;
+          formControlName&#x3D;&quot;bill&quot;
+          [appOnlyNumbers]&#x3D;&quot;false&quot;
+          appSelectOnFocus
+          appAutoFocus
+          aria-describedby&#x3D;&quot;billHelp&quot;
+          inputmode&#x3D;&quot;numeric&quot;
+          data-cy&#x3D;&quot;bill&quot;
+        /&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset class&#x3D;&quot;relative&quot;&gt;
+      &lt;label id&#x3D;&quot;tipLabel&quot; class&#x3D;&quot;input-label text-preset-5 mb-2 inline-block&quot;&gt;Select Tip %&lt;/label&gt;
+      @if ( (tip.invalid &amp;&amp; (tip.touched || tip.dirty )) || (customTip.invalid &amp;&amp; (customTip.touched
+      || customTip.dirty )) ) {
+      &lt;span class&#x3D;&quot;clr-orange-400 text-preset-5 absolute top-0 right-0&quot;&gt;Invalid tip&lt;/span&gt;
+      }
+
+      &lt;div class&#x3D;&quot;group group--column&quot; role&#x3D;&quot;radiogroup&quot; aria-labelledby&#x3D;&quot;tipLabel&quot;&gt;
+        @for (tipValue of tipOptions; track tipValue; let idx &#x3D; $index) {
+        &lt;div
+          #radioOption
+          class&#x3D;&quot;radio-group text-preset-3&quot;
+          role&#x3D;&quot;radio&quot;
+          [attr.tabindex]&#x3D;&quot;tip.value &#x3D;&#x3D;&#x3D; tipValue ? 0 : -1&quot;
+          [attr.aria-checked]&#x3D;&quot;tip.value &#x3D;&#x3D;&#x3D; tipValue&quot;
+          (keydown)&#x3D;&quot;keydownRadio($event, idx)&quot;
+        &gt;
+          &lt;input
+            [id]&#x3D;&quot;&#x27;tip-&#x27; + tipValue&quot;
+            [attr.data-cy]&#x3D;&quot;&#x27;tip-&#x27; + tipValue&quot;
+            class&#x3D;&quot;input-radio&quot;
+            type&#x3D;&quot;radio&quot;
+            formControlName&#x3D;&quot;tip&quot;
+            [attr.data-value]&#x3D;&quot;tipValue&quot;
+            value&#x3D;&quot;{{ tipValue }}&quot;
+          /&gt;
+          &lt;label [attr.data-cy]&#x3D;&quot;&#x27;tip-label-&#x27; + tipValue&quot; [for]&#x3D;&quot;&#x27;tip-&#x27; + tipValue&quot;
+            &gt;{{tipValue}}%&lt;/label
+          &gt;
+        &lt;/div&gt;
+        }
+        &lt;div
+          class&#x3D;&quot;input-group text-preset-3&quot;
+          [ngClass]&#x3D;&quot;{&#x27;field-invalid&#x27;: customTip.invalid &amp;&amp; (customTip.touched || customTip.dirty ) }&quot;
+        &gt;
+          &lt;p id&#x3D;&quot;customTipHelp&quot; class&#x3D;&quot;sr-only&quot;&gt;Enter a custom tip percentage&lt;/p&gt;
+          &lt;input
+            id&#x3D;&quot;customTip&quot;
+            data-cy&#x3D;&quot;customTip&quot;
+            class&#x3D;&quot;input-text&quot;
+            type&#x3D;&quot;text&quot;
+            formControlName&#x3D;&quot;customTip&quot;
+            aria-describedby&#x3D;&quot;customTipHelp&quot;
+            aria-label&#x3D;&quot;Custom tip percentage&quot;
+            maxlength&#x3D;&quot;3&quot;
+            placeholder&#x3D;&quot;Custom&quot;
+            [appOnlyNumbers]&#x3D;&quot;true&quot;
+            appSelectOnFocus
+            (keydown)&#x3D;&quot;enterCustomTip($event)&quot;
+            inputmode&#x3D;&quot;numeric&quot;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset class&#x3D;&quot;relative&quot;&gt;
+      &lt;label for&#x3D;&quot;nPeople&quot; class&#x3D;&quot;input-label text-preset-5 mb-2 inline-block&quot;
+        &gt;Number of people&lt;/label
+      &gt;
+      @if (nPeople.invalid &amp;&amp; (nPeople.touched || nPeople.dirty )) {
+      &lt;span class&#x3D;&quot;clr-orange-400 text-preset-5 absolute top-0 right-0&quot;&gt;Can’t be zero&lt;/span&gt;
+      }
+      &lt;div
+        class&#x3D;&quot;input-group text-preset-3&quot;
+        [ngClass]&#x3D;&quot;{&#x27;field-invalid&#x27;: nPeople.invalid &amp;&amp; (nPeople.touched || nPeople.dirty ) }&quot;
+      &gt;
+        &lt;svg class&#x3D;&quot;input-icon&quot; width&#x3D;&quot;13px&quot; height&#x3D;&quot;16px&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+          &lt;use href&#x3D;&quot;assets/icon/sprite.svg#person&quot; /&gt;
+        &lt;/svg&gt;
+        &lt;input
+          id&#x3D;&quot;nPeople&quot;
+          data-cy&#x3D;&quot;nPeople&quot;
+          class&#x3D;&quot;input-text&quot;
+          type&#x3D;&quot;text&quot;
+          maxlength&#x3D;&quot;3&quot;
+          placeholder&#x3D;&quot;0&quot;
+          formControlName&#x3D;&quot;nPeople&quot;
+          [appOnlyNumbers]&#x3D;&quot;true&quot;
+          appSelectOnFocus
+          inputmode&#x3D;&quot;numeric&quot;
+        /&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/form&gt;
+  &lt;div class&#x3D;&quot;tc_result flex flex-col gap-[20px]&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-col gap-[20px]&quot;&gt;
+      &lt;div class&#x3D;&quot;tc_result-tip flex flex-row justify-between&quot;&gt;
+        &lt;div&gt;
+          &lt;h2 class&#x3D;&quot;clr-white text-preset-5&quot;&gt;Tip Amount&lt;/h2&gt;
+          &lt;h3 class&#x3D;&quot;clr-grey-400 text-preset-6&quot;&gt;/ person&lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div aria-live&#x3D;&quot;polite&quot;&gt;
+          &lt;p class&#x3D;&quot;text-preset-2 clr-green-400 md:text-preset-1&quot; data-cy&#x3D;&quot;tipAmount&quot;&gt;
+            ${{tipAmount() | number: &#x27;1.2-2&#x27; }}
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tc_result-total flex flex-row justify-between&quot;&gt;
+        &lt;div&gt;
+          &lt;h2 class&#x3D;&quot;clr-white text-preset-5&quot;&gt;Total&lt;/h2&gt;
+          &lt;h3 class&#x3D;&quot;clr-grey-400 text-preset-6&quot;&gt;/ person&lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div aria-live&#x3D;&quot;polite&quot;&gt;
+          &lt;p class&#x3D;&quot;text-preset-2 clr-green-400 md:text-preset-1&quot; data-cy&#x3D;&quot;totalAmount&quot;&gt;
+            ${{totalAmount() | number: &#x27;1.2-2&#x27; }}
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;tc_result-action text-preset-4 mt-auto&quot;&gt;
+      &lt;button
+        [disabled]&#x3D;&quot;!formTip.valid&quot;
+        class&#x3D;&quot;btn btn--reset&quot;
+        type&#x3D;&quot;reset&quot;
+        (click)&#x3D;&quot;reset()&quot;
+        data-cy&#x3D;&quot;btnReset&quot;
+      &gt;
+        RESET
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="tc">  <h1 class="sr-only">Tip Form Calculator</h1>  <form class="tc_form" [formGroup]="formTip">    <fieldset class="relative">      <label for="bill" class="input-label text-preset-5 mb-2 inline-block">Bill</label>      @if (bill.invalid && (bill.touched || bill.dirty )) {      <span class="clr-orange-400 text-preset-5 absolute top-0 right-0">Can’t be zero</span>      }      <p id="billHelp" class="sr-only">Enter the bill amount in dollars</p>      <div        class="input-group text-preset-3"        [ngClass]="{\'field-invalid\': bill.invalid && (bill.touched || bill.dirty ) }"      >        <svg class="input-icon" width="11px" height="17px" aria-hidden="true">          <use href="assets/icon/sprite.svg#dollar" />        </svg>        <input          #billInput          id="bill"          class="input-text"          type="text"          placeholder="0"          maxlength="8"          formControlName="bill"          [appOnlyNumbers]="false"          appSelectOnFocus          appAutoFocus          aria-describedby="billHelp"          inputmode="numeric"          data-cy="bill"        />      </div>    </fieldset>    <fieldset class="relative">      <label id="tipLabel" class="input-label text-preset-5 mb-2 inline-block">Select Tip %</label>      @if ( (tip.invalid && (tip.touched || tip.dirty )) || (customTip.invalid && (customTip.touched      || customTip.dirty )) ) {      <span class="clr-orange-400 text-preset-5 absolute top-0 right-0">Invalid tip</span>      }      <div class="group group--column" role="radiogroup" aria-labelledby="tipLabel">        @for (tipValue of tipOptions; track tipValue; let idx = $index) {        <div          #radioOption          class="radio-group text-preset-3"          role="radio"          [attr.tabindex]="tip.value === tipValue ? 0 : -1"          [attr.aria-checked]="tip.value === tipValue"          (keydown)="keydownRadio($event, idx)"        >          <input            [id]="\'tip-\' + tipValue"            [attr.data-cy]="\'tip-\' + tipValue"            class="input-radio"            type="radio"            formControlName="tip"            [attr.data-value]="tipValue"            value="{{ tipValue }}"          />          <label [attr.data-cy]="\'tip-label-\' + tipValue" [for]="\'tip-\' + tipValue"            >{{tipValue}}%</label          >        </div>        }        <div          class="input-group text-preset-3"          [ngClass]="{\'field-invalid\': customTip.invalid && (customTip.touched || customTip.dirty ) }"        >          <p id="customTipHelp" class="sr-only">Enter a custom tip percentage</p>          <input            id="customTip"            data-cy="customTip"            class="input-text"            type="text"            formControlName="customTip"            aria-describedby="customTipHelp"            aria-label="Custom tip percentage"            maxlength="3"            placeholder="Custom"            [appOnlyNumbers]="true"            appSelectOnFocus            (keydown)="enterCustomTip($event)"            inputmode="numeric"          />        </div>      </div>    </fieldset>    <fieldset class="relative">      <label for="nPeople" class="input-label text-preset-5 mb-2 inline-block"        >Number of people</label      >      @if (nPeople.invalid && (nPeople.touched || nPeople.dirty )) {      <span class="clr-orange-400 text-preset-5 absolute top-0 right-0">Can’t be zero</span>      }      <div        class="input-group text-preset-3"        [ngClass]="{\'field-invalid\': nPeople.invalid && (nPeople.touched || nPeople.dirty ) }"      >        <svg class="input-icon" width="13px" height="16px" aria-hidden="true">          <use href="assets/icon/sprite.svg#person" />        </svg>        <input          id="nPeople"          data-cy="nPeople"          class="input-text"          type="text"          maxlength="3"          placeholder="0"          formControlName="nPeople"          [appOnlyNumbers]="true"          appSelectOnFocus          inputmode="numeric"        />      </div>    </fieldset>  </form>  <div class="tc_result flex flex-col gap-[20px]">    <div class="flex flex-col gap-[20px]">      <div class="tc_result-tip flex flex-row justify-between">        <div>          <h2 class="clr-white text-preset-5">Tip Amount</h2>          <h3 class="clr-grey-400 text-preset-6">/ person</h3>        </div>        <div aria-live="polite">          <p class="text-preset-2 clr-green-400 md:text-preset-1" data-cy="tipAmount">            ${{tipAmount() | number: \'1.2-2\' }}          </p>        </div>      </div>      <div class="tc_result-total flex flex-row justify-between">        <div>          <h2 class="clr-white text-preset-5">Total</h2>          <h3 class="clr-grey-400 text-preset-6">/ person</h3>        </div>        <div aria-live="polite">          <p class="text-preset-2 clr-green-400 md:text-preset-1" data-cy="totalAmount">            ${{totalAmount() | number: \'1.2-2\' }}          </p>        </div>      </div>    </div>    <div class="tc_result-action text-preset-4 mt-auto">      <button        [disabled]="!formTip.valid"        class="btn btn--reset"        type="reset"        (click)="reset()"        data-cy="btnReset"      >        RESET      </button>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Form', 'selector': 'app-form'},{'name': 'Header', 'selector': 'app-header'},{'name': 'MainLayout', 'selector': 'app-main-layout'},{'name': 'NotFound', 'selector': 'app-not-found'}];
+    var DIRECTIVES = [{'name': 'AutoFocusDirective', 'selector': '[appAutoFocus]'},{'name': 'OnlyNumbersDirective', 'selector': '[appOnlyNumbers]'},{'name': 'SelectOnFocusDirective', 'selector': '[appSelectOnFocus]'}];
+    var ACTUAL_COMPONENT = {'name': 'Form'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Form.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
