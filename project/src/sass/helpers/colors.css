@@ -6,6 +6,10 @@
   color: var(--clr-green-400);
 }
 
+@utility clr-grey-600 {
+  color: var(--clr-grey-600);
+}
+
 @utility clr-grey-400 {
   color: var(--clr-grey-400);
 }

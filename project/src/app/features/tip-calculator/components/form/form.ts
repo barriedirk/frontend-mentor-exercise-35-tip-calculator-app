@@ -16,7 +16,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { OnlyNumbersDirective } from '@app/shared/directives/only-numbers-directive';
 import { SelectOnFocusDirective } from '@app/shared/directives/select-on-focus-directive';
 import { conditionalTipValidator } from '@app/shared/validators/tip-validators';
-import { debounceTime } from 'rxjs';
+import { debounceTime, filter } from 'rxjs';
 import { AutoFocusDirective } from '@app/shared/directives/auto-focus-directive';
 
 const CUSTOM_TIP = 'CUSTOM_TIP';
@@ -76,26 +76,33 @@ export class Form implements OnInit {
       }
     });
 
-    this.formTip.valueChanges.pipe(debounceTime(300)).subscribe((values) => {
-      const bill = parseFloat(values.bill || '0');
-      const nPeople = parseInt(values.nPeople || '0', 10);
-      const tipControlValue = values.tip;
-      const customTipValue = parseFloat(values.customTip || '0');
+    this.formTip.valueChanges
+      .pipe(
+        filter((_) => !this.formTip.invalid),
+        debounceTime(300)
+      )
+      .subscribe((values) => {
+        this.formTip.markAllAsTouched();
 
-      const tipPercent =
-        tipControlValue === CUSTOM_TIP ? customTipValue : parseFloat(tipControlValue || '0');
+        const bill = parseFloat(values.bill || '0');
+        const nPeople = parseInt(values.nPeople || '0', 10);
+        const tipControlValue = values.tip;
+        const customTipValue = parseFloat(values.customTip || '0');
 
-      if (bill > 0 && nPeople > 0 && tipPercent >= 0) {
-        const tipAmount = (bill * (tipPercent / 100)) / nPeople;
-        const totalAmount = bill / nPeople + tipAmount;
+        const tipPercent =
+          tipControlValue === CUSTOM_TIP ? customTipValue : parseFloat(tipControlValue || '0');
 
-        this.tipAmount.set(tipAmount);
-        this.totalAmount.set(totalAmount);
-      } else {
-        this.tipAmount.set(0);
-        this.totalAmount.set(0);
-      }
-    });
+        if (bill > 0 && nPeople > 0 && tipPercent >= 0) {
+          const tipAmount = (bill * (tipPercent / 100)) / nPeople;
+          const totalAmount = bill / nPeople + tipAmount;
+
+          this.tipAmount.set(tipAmount);
+          this.totalAmount.set(totalAmount);
+        } else {
+          this.tipAmount.set(0);
+          this.totalAmount.set(0);
+        }
+      });
   }
 
   enterCustomTip(evt: KeyboardEvent) {

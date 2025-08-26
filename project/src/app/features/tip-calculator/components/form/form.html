@@ -58,7 +58,10 @@
             [attr.data-value]="tipValue"
             value="{{ tipValue }}"
           />
-          <label [attr.data-cy]="'tip-label-' + tipValue" [for]="'tip-' + tipValue"
+          <label
+            [attr.data-cy]="'tip-label-' + tipValue"
+            [for]="'tip-' + tipValue"
+            class="flex h-full w-full items-center justify-center"
             >{{tipValue}}%</label
           >
         </div>
@@ -85,13 +88,18 @@
           />
         </div>
       </div>
+
+      @if ( (tip.valid && tip.value === 'CUSTOM_TIP' && (tip.touched || tip.dirty )) &&
+      (customTip.valid && customTip.value === "" && (customTip.touched || customTip.dirty )) ) {
+      <p class="clr-green-800 text-preset-6">You selected 0% tip. No tip will be added.</p>
+      }
     </fieldset>
     <fieldset class="relative">
       <label for="nPeople" class="input-label text-preset-5 mb-2 inline-block"
         >Number of people</label
       >
       @if (nPeople.invalid && (nPeople.touched || nPeople.dirty )) {
-      <span class="clr-orange-400 text-preset-5 absolute top-0 right-0">Can’t be zero</span>
+      <p class="clr-orange-400 text-preset-5 absolute top-0 right-0">Can’t be zero</p>
       }
       <div
         class="input-group text-preset-3"
